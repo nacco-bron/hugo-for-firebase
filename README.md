@@ -9,13 +9,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: nacco-bron/hugo-for-firebase:latest
+      - image: naccobron/hugo-for-firebase:latest
     working_directory: ~/project
     steps:
       - checkout
       - run:
           name: "Run Hugo"
-          command: hugo -t slim
+          command: hugo
       - deploy:
           branch: master
           command: firebase deploy --token "$FIREBASE_TOKEN"
